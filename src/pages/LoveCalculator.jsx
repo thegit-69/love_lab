@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
 
 export default function LoveCalculator() {
     const AnimatedButton = motion.button;
@@ -64,19 +63,7 @@ export default function LoveCalculator() {
     };
 
     return (
-        <div className="bg-[#fff4f6] text-[#4a2135] font-['Plus_Jakarta_Sans'] selection:bg-[#ff7294] selection:text-[#4d001c] min-h-screen relative overflow-hidden pb-28">
-            {/* TopAppBar */}
-            <header className="fixed top-0 w-full z-50 bg-[#fff4f6]/80 backdrop-blur-2xl shadow-[0_12px_32px_rgba(74,33,53,0.06)] flex items-center justify-between px-6 h-16">
-                <div className="flex items-center gap-2">
-                    <span className="material-symbols-outlined text-[#b7004d]" style={filledIcon}>favorite</span>
-                    <span className="text-2xl font-extrabold text-[#b7004d] tracking-tighter">Love Lab</span>
-                </div>
-                <Link to="/" className="flex items-center gap-1 text-[#b7004d] font-semibold text-sm hover:opacity-80 transition-opacity">
-                    <span className="material-symbols-outlined text-base">arrow_back</span>
-                    Back to Home
-                </Link>
-            </header>
-
+        <div className="bg-[#fff4f6] text-[#4a2135] font-['Plus_Jakarta_Sans'] selection:bg-[#ff7294] selection:text-[#4d001c] min-h-screen relative z-10 overflow-hidden pb-28">
             <main className="pt-24 pb-32 px-6 w-full min-h-screen">
                 {/* Hero Section */}
                 <div className="relative mb-12 text-center max-w-4xl mx-auto">
@@ -92,7 +79,7 @@ export default function LoveCalculator() {
 
                 {/* Calculator Bento Grid / Form */}
                 <section className="space-y-6 max-w-4xl mx-auto">
-                    <div className="bg-[#ffecf1] rounded-4xl p-8 md:p-12 relative overflow-hidden shadow-[0_12px_32px_rgba(74,33,53,0.06)]">
+                    <div className="bg-[#ffecf1]/95 rounded-4xl p-8 md:p-12 relative overflow-hidden shadow-[0_12px_32px_rgba(74,33,53,0.10)] border border-white/70">
                         <div className="absolute inset-0 bg-linear-to-br from-[#ff7294]/10 to-[#c39fff]/10 opacity-50"></div>
 
                         <div className="relative">
@@ -100,14 +87,14 @@ export default function LoveCalculator() {
                                 <div className="space-y-5">
                                     <div className="grid gap-4 md:grid-cols-2">
                                         <input
-                                            className="w-full h-16 px-7 rounded-full bg-white/50 text-[#4a2135] placeholder:text-[#7d4d62]/55 focus:outline-none focus:ring-2 focus:ring-[#b7004d] text-lg font-semibold"
+                                            className="w-full h-16 px-7 rounded-full bg-white/90 text-[#4a2135] placeholder:text-[#7d4d62]/55 focus:outline-none focus:ring-2 focus:ring-[#b7004d] text-lg font-semibold"
                                             placeholder="Your Name"
                                             type="text"
                                             value={nameOne}
                                             onChange={(event) => setNameOne(event.target.value)}
                                         />
                                         <input
-                                            className="w-full h-16 px-7 rounded-full bg-white/50 text-[#4a2135] placeholder:text-[#7d4d62]/55 focus:outline-none focus:ring-2 focus:ring-[#b7004d] text-lg font-semibold"
+                                            className="w-full h-16 px-7 rounded-full bg-white/90 text-[#4a2135] placeholder:text-[#7d4d62]/55 focus:outline-none focus:ring-2 focus:ring-[#b7004d] text-lg font-semibold"
                                             placeholder="Crush's Name"
                                             type="text"
                                             value={nameTwo}
@@ -159,7 +146,7 @@ export default function LoveCalculator() {
                     </div>
 
                     {/* Decorative Card (Editorial Content) */}
-                    <div className="bg-[#ffd0e2] rounded-4xl p-6 flex items-center gap-6 overflow-hidden relative">
+                    <div className="bg-[#ffd0e2]/95 rounded-4xl p-6 flex items-center gap-6 overflow-hidden relative border border-white/60 shadow-[0_10px_26px_rgba(74,33,53,0.10)]">
                         <div className="flex-1">
                             <h3 className="text-xl font-bold text-[#4d001c] leading-none mb-1">Weekly Romance Tip</h3>
                             <p className="text-sm text-[#6e391a]">Communication is the heartbeat of every great couple.</p>
@@ -181,35 +168,6 @@ export default function LoveCalculator() {
                     </p>
                 </footer>
             </main>
-
-            {/* BottomNavBar */}
-            <nav className="fixed bottom-0 left-0 w-full h-24 bg-[#fff4f6]/80 backdrop-blur-2xl flex justify-around items-center z-50 rounded-t-[3rem] shadow-[0_-12px_32px_rgba(74,33,53,0.06)] px-2">
-                <Link to="/" className="flex flex-col items-center justify-center text-[#4a2135]/50 p-2 hover:text-[#b7004d] transition-colors active:scale-90">
-                    <span className="material-symbols-outlined">home</span>
-                    <span className="text-[10px] font-bold uppercase tracking-widest mt-0.5">Home</span>
-                </Link>
-
-                <Link to="/love" className="flex flex-col items-center justify-center bg-linear-to-br from-[#ff7294] to-[#b7004d] text-white rounded-full p-3 mb-2 scale-110 shadow-lg transition-all active:scale-90">
-                    <span className="material-symbols-outlined" style={filledIcon}>favorite</span>
-                    <span className="text-[10px] font-bold uppercase tracking-widest mt-0.5">Calculator</span>
-                </Link>
-
-                <Link to="/flames" className="flex flex-col items-center justify-center text-[#4a2135]/50 p-2 hover:text-[#b7004d] transition-colors active:scale-90">
-                    <span className="material-symbols-outlined">local_fire_department</span>
-                    <span className="text-[10px] font-bold uppercase tracking-widest mt-0.5">Flames</span>
-                </Link>
-
-                <Link to="/pickup" className="flex flex-col items-center justify-center text-[#4a2135]/50 p-2 hover:text-[#b7004d] transition-colors active:scale-90">
-                    <span className="material-symbols-outlined">chat_bubble</span>
-                    <span className="text-[10px] font-bold uppercase tracking-widest mt-0.5">Pickup</span>
-                </Link>
-
-                <Link to="/date" className="flex flex-col items-center justify-center text-[#4a2135]/50 p-2 hover:text-[#b7004d] transition-colors active:scale-90">
-                    <span className="material-symbols-outlined">celebration</span>
-                    <span className="text-[10px] font-bold uppercase tracking-widest mt-0.5">Dates</span>
-                </Link>
-            </nav>
-
             {/* Background Decoration */}
             <div className="fixed inset-0 pointer-events-none -z-10 overflow-hidden">
                 <div className="absolute top-1/4 -right-20 w-96 h-96 bg-[#ff7294]/10 rounded-full blur-[100px]"></div>

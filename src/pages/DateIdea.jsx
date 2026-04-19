@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
 
 const dateIdeas = [
     {
@@ -216,28 +215,7 @@ export default function DateIdea() {
     };
 
     return (
-        <div className="bg-[#fff4f6] min-h-screen text-[#4a2135] font-['Plus_Jakarta_Sans'] pb-28 relative overflow-hidden selection:bg-[#ff7294] selection:text-[#4d001c]">
-            <header className="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 h-16 bg-[#fff4f6]/80 backdrop-blur-2xl shadow-[0_8px_32px_rgba(74,33,53,0.04)]">
-                <div className="flex items-center gap-2 text-2xl font-black tracking-tighter text-[#b7004d]">
-                    <span className="material-symbols-outlined text-[#b7004d]" style={filledIcon}>favorite</span>
-                    <span className="font-bold tracking-tight">LoveLab</span>
-                </div>
-                <div className="flex gap-4">
-                    <button
-                        type="button"
-                        className="material-symbols-outlined text-[#4a2135]/60 hover:scale-110 transition-transform duration-300 ease-out active:scale-90"
-                    >
-                        notifications
-                    </button>
-                    <button
-                        type="button"
-                        className="material-symbols-outlined text-[#4a2135]/60 hover:scale-110 transition-transform duration-300 ease-out active:scale-90"
-                    >
-                        settings
-                    </button>
-                </div>
-            </header>
-
+        <div className="bg-[#fff4f6] min-h-screen text-[#4a2135] font-['Plus_Jakarta_Sans'] pb-28 relative z-10 overflow-hidden selection:bg-[#ff7294] selection:text-[#4d001c]">
             <div className="fixed inset-0 pointer-events-none -z-10 overflow-hidden">
                 <div className="absolute top-28 -right-20 w-96 h-96 bg-[#ff7294]/10 rounded-full blur-[100px]" />
                 <div className="absolute bottom-24 -left-20 w-96 h-96 bg-[#c39fff]/15 rounded-full blur-[100px]" />
@@ -254,8 +232,8 @@ export default function DateIdea() {
                 </section>
 
                 <section className="relative min-h-105 md:min-h-117.5 flex items-center justify-center">
-                    <div className="absolute w-[85%] h-85 md:h-95 bg-[#c39fff]/20 rounded-4xl rotate-6 translate-y-4" />
-                    <div className="absolute w-[90%] h-85 md:h-95 bg-[#ff7294]/15 rounded-4xl -rotate-3 translate-y-2" />
+                    <div className="absolute w-[85%] h-85 md:h-95 bg-[#c39fff]/35 rounded-4xl rotate-6 translate-y-4" />
+                    <div className="absolute w-[90%] h-85 md:h-95 bg-[#ff7294]/30 rounded-4xl -rotate-3 translate-y-2" />
 
                     <AnimatePresence mode="wait">
                         <MotionDiv
@@ -264,7 +242,7 @@ export default function DateIdea() {
                             animate={{ opacity: 1, x: 0, scale: 1 }}
                             exit={{ opacity: 0, x: -50, scale: 0.96 }}
                             transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-                            className="relative w-full max-w-3xl bg-white/70 backdrop-blur-2xl rounded-4xl shadow-[0_12px_32px_0px_rgba(74,33,53,0.06)] overflow-hidden flex flex-col"
+                            className="relative w-full max-w-3xl bg-white/94 backdrop-blur-2xl rounded-4xl shadow-[0_14px_36px_0px_rgba(74,33,53,0.12)] overflow-hidden flex flex-col border border-white/70"
                         >
                             <div className="h-56 md:h-64 relative overflow-hidden rounded-t-4xl">
                                 <img
@@ -278,7 +256,7 @@ export default function DateIdea() {
                                 </div>
                             </div>
 
-                            <div className="p-6 md:p-7 flex flex-col grow bg-white/85">
+                            <div className="p-6 md:p-7 flex flex-col grow bg-white/96">
                                 <div className="flex justify-between items-start mb-2 gap-3">
                                     <h2 className="text-2xl font-bold text-[#4a2135] tracking-tight">{currentIdea.title}</h2>
                                     <span className="text-2xl">🧺</span>
@@ -319,25 +297,6 @@ export default function DateIdea() {
                     </p>
                 </footer>
             </main>
-
-            <nav className="fixed bottom-0 left-0 w-full h-24 bg-[#fff4f6]/90 backdrop-blur-2xl flex justify-around items-center z-50 rounded-t-[3rem] shadow-[0_-16px_48px_rgba(74,33,53,0.1)] px-2">
-                <Link to="/" className="flex flex-col items-center justify-center text-[#4a2135]/50 p-2 hover:text-[#b7004d] transition-colors active:scale-90">
-                    <span className="material-symbols-outlined">home</span>
-                    <span className="text-[10px] font-bold uppercase tracking-widest mt-0.5">Home</span>
-                </Link>
-                <Link to="/love" className="flex flex-col items-center justify-center text-[#4a2135]/50 p-2 hover:text-[#b7004d] transition-colors active:scale-90">
-                    <span className="material-symbols-outlined">calculate</span>
-                    <span className="text-[10px] font-bold uppercase tracking-widest mt-0.5">Calculator</span>
-                </Link>
-                <Link to="/flames" className="flex flex-col items-center justify-center text-[#4a2135]/50 p-2 hover:text-[#b7004d] transition-colors active:scale-90">
-                    <span className="material-symbols-outlined">favorite_border</span>
-                    <span className="text-[10px] font-bold uppercase tracking-widest mt-0.5">Flames</span>
-                </Link>
-                <Link to="/date" className="flex flex-col items-center justify-center bg-linear-to-br from-[#b7004d] to-[#ff7294] text-white rounded-full px-6 py-2 shadow-lg shadow-[#ff7294]/40 transition-all duration-300 active:scale-90">
-                    <span className="material-symbols-outlined" style={filledIcon}>event</span>
-                    <span className="text-[10px] font-bold uppercase tracking-widest mt-0.5">Dates</span>
-                </Link>
-            </nav>
         </div>
     );
 }

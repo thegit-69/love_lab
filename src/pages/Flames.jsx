@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
 import './Flames.css';
 
 const FLAMES_LETTERS = ['F', 'L', 'A', 'M', 'E', 'S'];
@@ -182,29 +181,10 @@ export default function Flames() {
     };
 
     return (
-        <div className="min-h-screen pb-32 bg-[#fff4f6] text-[#4a2135] font-['Plus_Jakarta_Sans'] selection:bg-[#ff7294] selection:text-[#4d001c]">
-            {/* TopAppBar */}
-            <header className="fixed top-0 z-50 flex h-16 w-full items-center justify-between bg-[#fff4f6]/80 px-6 shadow-[0_12px_32px_rgba(74,33,53,0.06)] backdrop-blur-xl">
-                <div className="flex items-center gap-4">
-                    <span className="material-symbols-outlined text-xl text-[#b7004d]">favorite</span>
-                    <h1 className="text-2xl font-extrabold tracking-tighter text-[#b7004d]">
-                        <span className="material-symbols-outlined mr-1 align-middle text-sm" style={filledIcon}>favorite</span>
-                        LoveLab
-                    </h1>
-                </div>
-
-                <Link
-                    to="/"
-                    className="flex h-10 w-10 items-center justify-center rounded-full bg-[#ffe0eb] transition-transform duration-300 hover:scale-110"
-                    aria-label="Back home"
-                >
-                    <span className="material-symbols-outlined text-[#b7004d]" style={filledIcon}>home</span>
-                </Link>
-            </header>
-
+        <div className="min-h-screen pb-32 bg-[#fff4f6] text-[#4a2135] font-['Plus_Jakarta_Sans'] selection:bg-[#ff7294] selection:text-[#4d001c] relative z-10">
             <main className="mx-auto w-full max-w-7xl px-6 pt-24">
                 {/* Notebook Area */}
-                <div className="relative overflow-hidden rounded-2xl border border-black/5 p-6 pt-10" style={notebookPaperStyle}>
+                <div className="relative overflow-hidden rounded-2xl border border-black/10 p-6 pt-10 bg-[#fffdf5]/95 shadow-[0_14px_34px_rgba(74,33,53,0.10)]" style={notebookPaperStyle}>
                     {/* Notebook Holes decoration */}
                     <div className="absolute bottom-0 left-3 top-0 flex flex-col justify-around py-4">
                         {[...Array(8)].map((_, index) => (
@@ -391,29 +371,6 @@ export default function Flames() {
                     <span className="material-symbols-outlined absolute bottom-2 right-20 rotate-45 text-xl">auto_awesome</span>
                 </div>
             </main>
-
-            {/* BottomNavBar */}
-            <nav className="fixed bottom-0 left-0 z-50 flex w-full items-center justify-around rounded-t-[3rem] bg-[#fff4f6]/80 px-4 pb-8 pt-4 shadow-[0_-12px_40px_rgba(74,33,53,0.08)] backdrop-blur-2xl">
-                <Link to="/" className="flex cursor-pointer flex-col items-center justify-center px-5 py-2 text-[#4a2135]/50 transition-colors duration-200 hover:text-[#b7004d] active:scale-90">
-                    <span className="material-symbols-outlined">home</span>
-                    <span className="text-[11px] font-bold uppercase tracking-widest">Home</span>
-                </Link>
-
-                <Link to="/love" className="flex cursor-pointer flex-col items-center justify-center px-5 py-2 text-[#4a2135]/50 transition-colors duration-200 hover:text-[#b7004d] active:scale-90">
-                    <span className="material-symbols-outlined">favorite</span>
-                    <span className="text-[11px] font-bold uppercase tracking-widest">Calculator</span>
-                </Link>
-
-                <Link to="/flames" className="flex cursor-pointer flex-col items-center justify-center scale-110 rounded-full bg-linear-to-br from-[#b7004d] to-[#ff7294] px-5 py-2 text-white shadow-lg shadow-[#ff3377]/30 transition-transform duration-200 active:scale-90">
-                    <span className="material-symbols-outlined" style={filledIcon}>local_fire_department</span>
-                    <span className="text-[11px] font-bold uppercase tracking-widest">FLAMES</span>
-                </Link>
-
-                <Link to="/date" className="flex cursor-pointer flex-col items-center justify-center px-5 py-2 text-[#4a2135]/50 transition-colors duration-200 hover:text-[#b7004d] active:scale-90">
-                    <span className="material-symbols-outlined">celebration</span>
-                    <span className="text-[11px] font-bold uppercase tracking-widest">Dates</span>
-                </Link>
-            </nav>
         </div>
     );
 }

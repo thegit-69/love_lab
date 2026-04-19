@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link } from 'react-router-dom';
 
 // 1. The Customized Chennai/Telugu Student Database
 const pickupLines = [
@@ -121,10 +120,7 @@ export default function PickupLine() {
   const MotionSpan = motion.span;
   const [line, setLine] = useState(() => getRandomLine());
   const [isRolling, setIsRolling] = useState(false);
-  const [popupVisible, setPopupVisible] = useState(false);
-  const [popupMessage, setPopupMessage] = useState('Stay sparkling! ✨');
   const rollTimeoutRef = useRef(null);
-  const popupTimeoutRef = useRef(null);
   const filledIcon = { fontVariationSettings: '"FILL" 1' };
 
   useEffect(() => {
@@ -132,24 +128,8 @@ export default function PickupLine() {
       if (rollTimeoutRef.current) {
         window.clearTimeout(rollTimeoutRef.current);
       }
-      if (popupTimeoutRef.current) {
-        window.clearTimeout(popupTimeoutRef.current);
-      }
     };
   }, []);
-
-  const toggleHeartMessage = () => {
-    const messages = ['I love you!', "You're amazing!", 'Stay sparkling!', 'You got this!', 'XOXO ❤️'];
-    if (popupTimeoutRef.current) {
-      window.clearTimeout(popupTimeoutRef.current);
-    }
-
-    setPopupMessage(messages[Math.floor(Math.random() * messages.length)]);
-    setPopupVisible(true);
-    popupTimeoutRef.current = window.setTimeout(() => {
-      setPopupVisible(false);
-    }, 3000);
-  };
 
   const generateLine = useCallback(() => {
     if (isRolling) {
@@ -169,40 +149,7 @@ export default function PickupLine() {
   }, [isRolling]);
 
   return (
-    <div className="bg-[#fff4f6] min-h-screen text-[#4a2135] font-['Plus_Jakarta_Sans'] pb-28 relative overflow-hidden flex flex-col selection:bg-[#ff7294] selection:text-[#4d001c]">
-
-      {/* Background Floating Icons from Design System */}
-      <div className="fixed inset-0 pointer-events-none opacity-[0.08] z-0 overflow-hidden">
-        <span className="material-symbols-outlined absolute top-[10%] left-[5%] text-4xl animate-[float_6s_ease-in-out_infinite]">favorite</span>
-        <span className="material-symbols-outlined absolute top-[15%] right-[10%] text-3xl animate-[float_6s_ease-in-out_infinite_1s]">auto_awesome</span>
-        <span className="material-symbols-outlined absolute top-[40%] left-[8%] text-2xl animate-[float_6s_ease-in-out_infinite_2s]">sentiment_very_satisfied</span>
-        <span className="material-symbols-outlined absolute bottom-[25%] right-[20%] text-4xl animate-[float_6s_ease-in-out_infinite_2.5s]">mode_comment</span>
-      </div>
-
-      {/* TopAppBar */}
-      <header className="fixed top-0 w-full z-50 flex justify-between items-center px-8 py-6 bg-[#fff4f6]/80 backdrop-blur-2xl rounded-b-[2.5rem] shadow-[0_12px_32px_rgba(74,33,53,0.06)]">
-        <div className="text-2xl font-black italic text-transparent bg-clip-text bg-linear-to-r from-[#b7004d] to-[#ff7294] tracking-tighter">
-          Love Lab
-        </div>
-        <div className="flex items-center gap-6 relative">
-          <button className="relative group outline-none focus:outline-none" onClick={toggleHeartMessage} type="button">
-            <div className="transition-transform active:scale-90 hover:scale-110">
-              <svg fill="#FF3377" height="48" viewBox="0 0 24 24" width="48" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-                <circle cx="9" cy="9" fill="white" r="1" />
-                <circle cx="15" cy="9" fill="white" r="1" />
-                <path d="M9 13C9 13 10.5 14.5 12 14.5C13.5 14.5 15 13 15 13" fill="none" stroke="white" strokeLinecap="round" strokeWidth="1" />
-              </svg>
-            </div>
-            {popupVisible && (
-              <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 whitespace-nowrap bg-[#FF3377] text-white px-4 py-2 rounded-2xl text-sm font-bold shadow-lg z-60">
-                {popupMessage}
-              </div>
-            )}
-          </button>
-        </div>
-      </header>
-
+    <div className="bg-[#fff4f6] min-h-screen text-[#4a2135] font-['Plus_Jakarta_Sans'] pb-28 relative z-10 overflow-hidden flex flex-col selection:bg-[#ff7294] selection:text-[#4d001c]">
       {/* Main Content */}
       <main className="grow w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-10 pt-28 pb-12 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-[360px,1fr] gap-10 lg:gap-14 items-center">
@@ -280,7 +227,7 @@ export default function PickupLine() {
                 animate={{ opacity: 1, y: 0, scale: 1, filter: 'blur(0px)' }}
                 exit={{ opacity: 0, y: -20, scale: 0.98, filter: 'blur(3px)' }}
                 transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-                className="w-full bg-white/70 backdrop-blur-2xl rounded-4xl p-6 sm:p-8 mb-8 text-center min-h-40 flex flex-col justify-center border-2 border-[#ff7294]/10 shadow-[0_12px_32px_rgba(74,33,53,0.08)]"
+                className="w-full bg-white/92 backdrop-blur-2xl rounded-4xl p-6 sm:p-8 mb-8 text-center min-h-40 flex flex-col justify-center border-2 border-[#ff7294]/25 shadow-[0_14px_34px_rgba(74,33,53,0.12)]"
               >
                 <span className="material-symbols-outlined text-[#b7004d] mb-4 block text-4xl mx-auto" style={filledIcon}>chat_bubble</span>
                 <p className="text-xl md:text-2xl font-bold text-[#4a2135] leading-relaxed">
@@ -290,7 +237,7 @@ export default function PickupLine() {
             </AnimatePresence>
 
             <div className="text-center lg:text-left">
-              <div className="bg-[#ffecf1] rounded-full px-6 py-3 inline-block">
+              <div className="bg-[#ffecf1]/95 rounded-full px-6 py-3 inline-block border border-white/70 shadow-[0_8px_20px_rgba(74,33,53,0.10)]">
                 <p className="text-xs text-[#7d4d62] font-medium leading-tight">
                   Just for fun! Don&apos;t take these lines too seriously-your charm is worth more than any algorithm.
                 </p>
@@ -299,34 +246,6 @@ export default function PickupLine() {
           </section>
         </div>
       </main>
-
-      {/* BottomNavBar */}
-      <nav className="fixed bottom-0 left-0 w-full h-24 bg-[#fff4f6]/80 backdrop-blur-2xl flex justify-around items-center z-50 rounded-t-[3rem] shadow-[0_-12px_32px_rgba(74,33,53,0.06)] px-2">
-        <Link to="/" className="flex flex-col items-center justify-center text-[#4a2135]/50 p-2 hover:text-[#b7004d] transition-colors active:scale-90">
-          <span className="material-symbols-outlined">home</span>
-          <span className="text-[10px] font-bold uppercase tracking-widest mt-0.5">Home</span>
-        </Link>
-
-        <Link to="/love" className="flex flex-col items-center justify-center text-[#4a2135]/50 p-2 hover:text-[#b7004d] transition-colors active:scale-90">
-          <span className="material-symbols-outlined">favorite</span>
-          <span className="text-[10px] font-bold uppercase tracking-widest mt-0.5">Calculator</span>
-        </Link>
-
-        <Link to="/flames" className="flex flex-col items-center justify-center text-[#4a2135]/50 p-2 hover:text-[#b7004d] transition-colors active:scale-90">
-          <span className="material-symbols-outlined">local_fire_department</span>
-          <span className="text-[10px] font-bold uppercase tracking-widest mt-0.5">Flames</span>
-        </Link>
-
-        <Link to="/pickup" className="flex flex-col items-center justify-center bg-linear-to-br from-[#ff7294] to-[#b7004d] text-white rounded-full p-3 mb-2 scale-110 shadow-lg transition-all active:scale-90">
-          <span className="material-symbols-outlined" style={filledIcon}>chat_bubble</span>
-          <span className="text-[10px] font-bold uppercase tracking-widest mt-0.5">Pickup</span>
-        </Link>
-
-        <Link to="/date" className="flex flex-col items-center justify-center text-[#4a2135]/50 p-2 hover:text-[#b7004d] transition-colors active:scale-90">
-          <span className="material-symbols-outlined">celebration</span>
-          <span className="text-[10px] font-bold uppercase tracking-widest mt-0.5">Dates</span>
-        </Link>
-      </nav>
     </div>
   );
 }
