@@ -221,81 +221,81 @@ export default function DateIdea() {
                 <div className="absolute bottom-24 -left-20 w-96 h-96 bg-[#c39fff]/15 rounded-full blur-[100px]" />
             </div>
 
-            <main className="pt-24 pb-32 w-full max-w-4xl mx-auto px-6 space-y-8">
-                <section className="text-center space-y-2">
-                    <h1 className="text-[2.5rem] md:text-6xl font-extrabold leading-[1.1] tracking-[-0.04em] text-[#4a2135]">
-                        Spark Something <span className="text-[#b7004d] italic">New</span>
-                    </h1>
-                    <p className="text-[#7d4d62] font-medium opacity-80 max-w-2xl mx-auto">
-                        Tap the magic wand to reveal your next romantic adventure.
-                    </p>
-                </section>
+            <main className="grow flex items-center justify-center w-full max-w-6xl mx-auto px-6 pt-24 pb-32 relative z-10">
+                <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <section className="space-y-5 text-center md:text-left">
+                        <h1 className="text-[2.5rem] md:text-6xl font-extrabold leading-[1.1] tracking-[-0.04em] text-[#4a2135]">
+                            Spark Something <span className="text-[#b7004d] italic">New</span>
+                        </h1>
+                        <p className="text-[#7d4d62] font-medium opacity-80 max-w-2xl mx-auto md:mx-0">
+                            Tap the magic wand to reveal your next romantic adventure.
+                        </p>
 
-                <section className="relative min-h-105 md:min-h-117.5 flex items-center justify-center">
-                    <div className="absolute w-[85%] h-85 md:h-95 bg-[#c39fff]/35 rounded-4xl rotate-6 translate-y-4" />
-                    <div className="absolute w-[90%] h-85 md:h-95 bg-[#ff7294]/30 rounded-4xl -rotate-3 translate-y-2" />
-
-                    <AnimatePresence mode="wait">
-                        <MotionDiv
-                            key={currentIdea.title}
-                            initial={{ opacity: 0, x: 80, scale: 0.94 }}
-                            animate={{ opacity: 1, x: 0, scale: 1 }}
-                            exit={{ opacity: 0, x: -50, scale: 0.96 }}
-                            transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-                            className="relative w-full max-w-3xl bg-white/94 backdrop-blur-2xl rounded-4xl shadow-[0_14px_36px_0px_rgba(74,33,53,0.12)] overflow-hidden flex flex-col border border-white/70"
+                        <MotionButton
+                            whileHover={{ scale: 1.03 }}
+                            whileTap={{ scale: 0.95 }}
+                            onClick={generateNewPlan}
+                            disabled={isGenerating}
+                            type="button"
+                            className="w-full h-16 bg-linear-to-br from-[#b7004d] to-[#ff7294] text-white rounded-full font-bold text-lg shadow-lg shadow-[#b7004d]/20 flex items-center justify-center gap-3 active:scale-95 transition-all duration-200 disabled:opacity-75 disabled:cursor-not-allowed"
                         >
-                            <div className="h-56 md:h-64 relative overflow-hidden rounded-t-4xl">
-                                <img
-                                    className="w-full h-full object-cover"
-                                    src={currentIdea.image}
-                                    alt={currentIdea.title}
-                                />
-                                <div className="absolute top-4 right-4 bg-white/85 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-[#b7004d] flex items-center gap-1">
-                                    <span className="material-symbols-outlined text-[14px]" style={filledIcon}>star</span>
-                                    TOP PICK
-                                </div>
-                            </div>
+                            <span className="material-symbols-outlined" style={filledIcon}>event</span>
+                            {isGenerating ? 'GENERATING...' : 'GENERATE NEW PLAN'}
+                        </MotionButton>
 
-                            <div className="p-6 md:p-7 flex flex-col grow bg-white/96">
-                                <div className="flex justify-between items-start mb-2 gap-3">
-                                    <h2 className="text-2xl font-bold text-[#4a2135] tracking-tight">{currentIdea.title}</h2>
-                                    <span className="text-2xl">🧺</span>
-                                </div>
-                                <p className="text-[#7d4d62] leading-relaxed mb-auto">{currentIdea.description}</p>
-                                <div className="flex flex-wrap gap-3 mt-5">
-                                    <span className="rounded-full bg-[#ffecf1] px-3 py-1 text-xs font-bold text-[#4a2135] flex items-center gap-1.5 uppercase tracking-wide">
-                                        <span className="material-symbols-outlined text-sm">location_on</span>
-                                        {currentIdea.location}
-                                    </span>
-                                    <span className="rounded-full bg-[#ffecf1] px-3 py-1 text-xs font-bold text-[#4a2135] flex items-center gap-1.5 uppercase tracking-wide">
-                                        <span className="material-symbols-outlined text-sm">payments</span>
-                                        {currentIdea.price}
-                                    </span>
-                                </div>
-                            </div>
-                        </MotionDiv>
-                    </AnimatePresence>
-                </section>
+                        <footer className="pt-2 text-center md:text-left">
+                            <p className="text-[10px] font-bold text-[#7d4d62] uppercase tracking-widest opacity-40">
+                                Generated just for fun • Results vary by heart size
+                            </p>
+                        </footer>
+                    </section>
 
-                <section>
-                    <MotionButton
-                        whileHover={{ scale: 1.03 }}
-                        whileTap={{ scale: 0.95 }}
-                        onClick={generateNewPlan}
-                        disabled={isGenerating}
-                        type="button"
-                        className="w-full h-16 bg-linear-to-br from-[#b7004d] to-[#ff7294] text-white rounded-full font-bold text-lg shadow-lg shadow-[#b7004d]/20 flex items-center justify-center gap-3 active:scale-95 transition-all duration-200 disabled:opacity-75 disabled:cursor-not-allowed"
-                    >
-                        <span className="material-symbols-outlined" style={filledIcon}>event</span>
-                        {isGenerating ? 'GENERATING...' : 'GENERATE NEW PLAN'}
-                    </MotionButton>
-                </section>
+                    <section className="relative min-h-105 md:min-h-117.5 flex items-center justify-center">
+                        <div className="absolute w-[85%] h-85 md:h-95 bg-[#c39fff]/35 rounded-4xl rotate-6 translate-y-4" />
+                        <div className="absolute w-[90%] h-85 md:h-95 bg-[#ff7294]/30 rounded-4xl -rotate-3 translate-y-2" />
 
-                <footer className="pt-6 pb-4 text-center">
-                    <p className="text-[10px] font-bold text-[#7d4d62] uppercase tracking-widest opacity-40">
-                        Generated just for fun • Results vary by heart size
-                    </p>
-                </footer>
+                        <AnimatePresence mode="wait">
+                            <MotionDiv
+                                key={currentIdea.title}
+                                initial={{ opacity: 0, x: 80, scale: 0.94 }}
+                                animate={{ opacity: 1, x: 0, scale: 1 }}
+                                exit={{ opacity: 0, x: -50, scale: 0.96 }}
+                                transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                                className="relative w-full max-w-3xl bg-white/94 backdrop-blur-2xl rounded-4xl shadow-[0_14px_36px_0px_rgba(74,33,53,0.12)] overflow-hidden flex flex-col border border-white/70"
+                            >
+                                <div className="h-56 md:h-64 relative overflow-hidden rounded-t-4xl">
+                                    <img
+                                        className="w-full h-full object-cover"
+                                        src={currentIdea.image}
+                                        alt={currentIdea.title}
+                                    />
+                                    <div className="absolute top-4 right-4 bg-white/85 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-[#b7004d] flex items-center gap-1">
+                                        <span className="material-symbols-outlined text-[14px]" style={filledIcon}>star</span>
+                                        TOP PICK
+                                    </div>
+                                </div>
+
+                                <div className="p-6 md:p-7 flex flex-col grow bg-white/96">
+                                    <div className="flex justify-between items-start mb-2 gap-3">
+                                        <h2 className="text-2xl font-bold text-[#4a2135] tracking-tight">{currentIdea.title}</h2>
+                                        <span className="text-2xl">🧺</span>
+                                    </div>
+                                    <p className="text-[#7d4d62] leading-relaxed mb-auto">{currentIdea.description}</p>
+                                    <div className="flex flex-wrap gap-3 mt-5">
+                                        <span className="rounded-full bg-[#ffecf1] px-3 py-1 text-xs font-bold text-[#4a2135] flex items-center gap-1.5 uppercase tracking-wide">
+                                            <span className="material-symbols-outlined text-sm">location_on</span>
+                                            {currentIdea.location}
+                                        </span>
+                                        <span className="rounded-full bg-[#ffecf1] px-3 py-1 text-xs font-bold text-[#4a2135] flex items-center gap-1.5 uppercase tracking-wide">
+                                            <span className="material-symbols-outlined text-sm">payments</span>
+                                            {currentIdea.price}
+                                        </span>
+                                    </div>
+                                </div>
+                            </MotionDiv>
+                        </AnimatePresence>
+                    </section>
+                </div>
             </main>
         </div>
     );

@@ -12,7 +12,7 @@ export default function GlobalBottomNav() {
     const location = useLocation();
 
     return (
-        <nav className="fixed bottom-6 left-1/2 -translate-x-1/2 w-[94%] max-w-3xl z-50 flex justify-around items-end p-2 lg:p-3 rounded-[2.5rem] lg:rounded-full bg-[#fff4f6]/95 backdrop-blur-2xl shadow-2xl border border-white/70">
+        <nav className="fixed bottom-4 left-1/2 -translate-x-1/2 w-[92%] max-w-lg z-50 flex justify-around items-end p-2 rounded-[2.5rem] bg-[#fff4f6]/95 backdrop-blur-2xl shadow-2xl border border-white/70">
             {navItems.map((item) => {
                 const isActive = location.pathname === item.to;
 

@@ -151,9 +151,9 @@ export default function PickupLine() {
   return (
     <div className="bg-[#fff4f6] min-h-screen text-[#4a2135] font-['Plus_Jakarta_Sans'] pb-28 relative z-10 overflow-hidden flex flex-col selection:bg-[#ff7294] selection:text-[#4d001c]">
       {/* Main Content */}
-      <main className="grow w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-10 pt-28 pb-12 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-[360px,1fr] gap-10 lg:gap-14 items-center">
-          <section className="flex flex-col items-center lg:items-start text-center lg:text-left">
+      <main className="grow flex items-center justify-center w-full max-w-6xl mx-auto px-6 pt-24 pb-32 relative z-10">
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <section className="flex flex-col items-center justify-center text-center">
             <div className="mb-7">
               <h1 className="text-5xl md:text-6xl font-extrabold tracking-tighter text-[#4a2135] mb-2">Pick-A-Line</h1>
               <p className="text-[#7d4d62] text-sm font-medium tracking-wide uppercase opacity-70">Feeling lucky in love?</p>
@@ -200,12 +200,15 @@ export default function PickupLine() {
               </MotionDiv>
             </div>
 
+          </section>
+
+          <section className="w-full flex flex-col items-center md:items-start">
             <MotionButton
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.95 }}
               onClick={generateLine}
               disabled={isRolling}
-              className="w-full sm:max-w-sm lg:max-w-none bg-linear-to-tr from-[#b7004d] to-[#ff7294] text-white py-5 rounded-full font-extrabold text-lg tracking-widest shadow-lg shadow-[#ff7294]/30 flex items-center justify-center gap-3 disabled:opacity-70 disabled:cursor-not-allowed"
+              className="w-full sm:max-w-sm md:max-w-none bg-linear-to-tr from-[#b7004d] to-[#ff7294] text-white py-5 rounded-full font-extrabold text-lg tracking-widest shadow-lg shadow-[#ff7294]/30 flex items-center justify-center gap-3 disabled:opacity-70 disabled:cursor-not-allowed mb-6"
             >
               <MotionSpan
                 animate={{ rotate: isRolling ? 360 : 0 }}
@@ -217,9 +220,7 @@ export default function PickupLine() {
               </MotionSpan>
               {isRolling ? 'ROLLING...' : 'ROLL FOR ROMANCE'}
             </MotionButton>
-          </section>
 
-          <section className="w-full">
             <AnimatePresence mode="wait">
               <MotionDiv
                 key={line}
@@ -236,7 +237,7 @@ export default function PickupLine() {
               </MotionDiv>
             </AnimatePresence>
 
-            <div className="text-center lg:text-left">
+            <div className="text-center md:text-left">
               <div className="bg-[#ffecf1]/95 rounded-full px-6 py-3 inline-block border border-white/70 shadow-[0_8px_20px_rgba(74,33,53,0.10)]">
                 <p className="text-xs text-[#7d4d62] font-medium leading-tight">
                   Just for fun! Don&apos;t take these lines too seriously-your charm is worth more than any algorithm.
