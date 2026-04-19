@@ -96,7 +96,6 @@ export default function Flames() {
     const [strikeData, setStrikeData] = useState(null);
 
     const timerRef = useRef(null);
-    const filledIcon = { fontVariationSettings: '"FILL" 1' };
 
     const notebookPaperStyle = {
         backgroundColor: '#fffdf5',
@@ -200,7 +199,7 @@ export default function Flames() {
 
                             {gameState === 'input' && (
                                 <>
-                                    <div className="mb-16 w-full space-y-8">
+                                    <div className="w-full space-y-6">
                                         <div>
                                             <label className="mb-0 block font-['Caveat'] text-2xl leading-none text-slate-600">Your Name:</label>
                                             <input
@@ -224,7 +223,25 @@ export default function Flames() {
                                         </div>
                                     </div>
 
-                                    <div className="mt-12 w-full">
+                                    <div className="relative mt-4 -rotate-1 text-center">
+                                        <p className="font-['Caveat'] text-3xl font-bold text-[#b7004d]">
+                                            Ready to test fate? <span className="text-4xl">❤️</span>
+                                        </p>
+                                    </div>
+
+                                    <div className="mt-5 w-full">
+                                        <MotionButton
+                                            whileHover={{ scale: 1.03 }}
+                                            whileTap={{ scale: 0.95 }}
+                                            type="button"
+                                            className="w-full rotate-1 rounded-sm border-b-4 border-r-4 border-black/20 bg-[#b7004d] py-3 font-['Caveat'] text-2xl text-white shadow-md transition-all hover:shadow-lg"
+                                            onClick={calculateFlames}
+                                        >
+                                            Calculate FLAMES
+                                        </MotionButton>
+                                    </div>
+
+                                    <div className="mt-8 w-full">
                                         <div className="mb-6 flex items-center justify-between pr-4">
                                             <div className="font-notebook flex gap-4 text-5xl text-blue-800 md:text-6xl">
                                                 {FLAMES_LETTERS.map((letter) => (
@@ -241,24 +258,6 @@ export default function Flames() {
                                             <div>E - Enmity</div>
                                             <div>S - Sibling</div>
                                         </div>
-
-                                        <div className="relative mt-8 -rotate-2 text-center">
-                                            <p className="font-['Caveat'] text-3xl font-bold text-[#b7004d]">
-                                                Ready to test fate? <span className="text-4xl">❤️</span>
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                    <div className="mt-16 w-full pr-4">
-                                        <MotionButton
-                                            whileHover={{ scale: 1.03 }}
-                                            whileTap={{ scale: 0.95 }}
-                                            type="button"
-                                            className="w-full rotate-1 rounded-sm border-b-4 border-r-4 border-black/20 bg-[#b7004d] py-3 font-['Caveat'] text-2xl text-white shadow-md transition-all hover:shadow-lg"
-                                            onClick={calculateFlames}
-                                        >
-                                            Calculate FLAMES
-                                        </MotionButton>
                                     </div>
                                 </>
                             )}

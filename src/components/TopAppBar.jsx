@@ -32,7 +32,7 @@ export default function TopAppBar() {
         <header className="fixed top-0 w-full z-50 flex justify-between items-center px-8 py-6 bg-[#fff4f6]/95 backdrop-blur-2xl rounded-b-[2.5rem] shadow-[0_12px_32px_rgba(74,33,53,0.10)] border-b border-white/70">
             <Link to="/" className="flex items-center gap-2">
                 <img src="/logo.svg" alt="Love Lab Logo" className="w-8 h-8 md:w-10 md:h-10 animate-[float_6s_ease-in-out_infinite]" />
-                <span className="text-2xl font-black italic text-transparent bg-clip-text bg-linear-to-r from-[#b7004d] to-[#ff7294] tracking-tighter">
+                <span className="text-2xl font-black italic text-transparent bg-clip-text bg-linear-to-r from-[#b7004d] to-[#ff7294] tracking-tighter pr-2">
                     Love Lab
                 </span>
             </Link>

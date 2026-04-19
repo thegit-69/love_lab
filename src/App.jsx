@@ -8,11 +8,13 @@ import TopAppBar from './components/TopAppBar';
 import GlobalBottomNav from './components/GlobalBottomNav';
 import GlobalFooter from './components/GlobalFooter';
 import GlobalEmojiBackground from './components/GlobalEmojiBackground';
+import ScrollToTop from './components/ScrollToTop';
 import { Analytics } from "@vercel/analytics/react";
 
 export default function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <div className="relative">
         <GlobalEmojiBackground />
         <TopAppBar />
