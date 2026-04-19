@@ -204,7 +204,7 @@ export default function Flames() {
                                             <label className="mb-0 block font-['Caveat'] text-2xl leading-none text-slate-600">Your Name:</label>
                                             <input
                                                 className="font-notebook w-full border-none bg-transparent px-0 py-1 text-3xl text-blue-700 placeholder:text-blue-700/30 focus:ring-0"
-                                                placeholder="Juliet"
+                                                placeholder="Romeo"
                                                 type="text"
                                                 value={nameOne}
                                                 onChange={(event) => setNameOne(event.target.value)}
@@ -215,7 +215,7 @@ export default function Flames() {
                                             <label className="mb-0 block font-['Caveat'] text-2xl leading-none text-slate-600">Crush Name:</label>
                                             <input
                                                 className="font-notebook w-full border-none bg-transparent px-0 py-1 text-3xl text-blue-700 placeholder:text-blue-700/30 focus:ring-0"
-                                                placeholder="Romeo"
+                                                placeholder="Juliet"
                                                 type="text"
                                                 value={nameTwo}
                                                 onChange={(event) => setNameTwo(event.target.value)}
