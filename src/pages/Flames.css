@@ -1,6 +1,9 @@
+/* Self-hosted font definition */
+@import url('/fonts/fonts.css');
+/* Fallback remote font if local font is unavailable */
 @import url('https://fonts.googleapis.com/css2?family=Kalam:wght@700&display=swap');
 
 .font-notebook {
-    font-family: 'Kalam', cursive;
+    font-family: 'Kalam', cursive, sans-serif;
     font-weight: 700;
 }
