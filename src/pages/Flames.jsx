@@ -138,7 +138,7 @@ export default function Flames() {
         setResultInfo({ letter: finalLetter, word: mappedResult.word, message: mappedResult.message });
         setGameState('animating');
 
-        const animationDuration = 2250
+        const animationDuration = 2250;
         timerRef.current = window.setTimeout(() => {
             setGameState('result');
         }, animationDuration);
@@ -206,6 +206,7 @@ export default function Flames() {
                                                 className="font-notebook w-full border-none bg-transparent px-0 py-1 text-3xl text-blue-700 placeholder:text-blue-700/30 focus:ring-0"
                                                 placeholder="Romeo"
                                                 type="text"
+                                                maxLength={50}
                                                 value={nameOne}
                                                 onChange={(event) => setNameOne(event.target.value)}
                                             />
@@ -217,6 +218,7 @@ export default function Flames() {
                                                 className="font-notebook w-full border-none bg-transparent px-0 py-1 text-3xl text-blue-700 placeholder:text-blue-700/30 focus:ring-0"
                                                 placeholder="Juliet"
                                                 type="text"
+                                                maxLength={50}
                                                 value={nameTwo}
                                                 onChange={(event) => setNameTwo(event.target.value)}
                                             />

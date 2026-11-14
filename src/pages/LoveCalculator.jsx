@@ -22,9 +22,6 @@ export default function LoveCalculator() {
         if (score <= 60) {
             return '50-50 chance🫣! Ask & take them to out Chettipedu pungulu,cinema at EVP Cinemas, VR or Phoeniox mall to actually impress them. 🍿';
         }
-        if (score <= 61) {
-            return '50-50 chance🫣! Ask & take them to out Chettipedu pungulu,cinema at EVP Cinemas, VR or Phoeniox mall to actually impress them. 🍿';
-        }
         if (score <= 75) {
             return 'Baga set ayyaru! 👀,Inkem po, daily Equitorial,ECE benches daggara muchhatlu💝, chance waste chesukobaku';
         }
@@ -90,6 +87,7 @@ export default function LoveCalculator() {
                                             className="w-full h-16 px-7 rounded-full bg-white/90 text-[#4a2135] placeholder:text-[#7d4d62]/55 focus:outline-none focus:ring-2 focus:ring-[#b7004d] text-lg font-semibold"
                                             placeholder="Your Name"
                                             type="text"
+                                            maxLength={50}
                                             value={nameOne}
                                             onChange={(event) => setNameOne(event.target.value)}
                                         />
@@ -97,6 +95,7 @@ export default function LoveCalculator() {
                                             className="w-full h-16 px-7 rounded-full bg-white/90 text-[#4a2135] placeholder:text-[#7d4d62]/55 focus:outline-none focus:ring-2 focus:ring-[#b7004d] text-lg font-semibold"
                                             placeholder="Crush's Name"
                                             type="text"
+                                            maxLength={50}
                                             value={nameTwo}
                                             onChange={(event) => setNameTwo(event.target.value)}
                                         />
